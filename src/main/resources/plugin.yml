@@ -1,0 +1,9 @@
+name: Dungeonator
+main: io.github.nickston.dungeonator.Dungeonator
+version: ${version}
+commands:
+   dungeon:
+      description: Test.
+      usage: /dungeon
+      permission: dungeon.player
+      permission-message: You don't have the permission to do that.
