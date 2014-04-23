@@ -37,23 +37,31 @@ public final class Dungeonator extends JavaPlugin {
 		if (cmd.getName().equalsIgnoreCase("dungeon")) {
 			if (args.length == 0) {
 				// TODO: Add /dungeon functionality
+				// TODO: /dungeon lists all commands.
 
 				sender.sendMessage(ChatColor.AQUA + "Available dungeons:");
 
 				// for (int i = 0; i < dungeonList.size(); i++) {
 				// sender.sendMessage(dungeonList.get(i));
 				// }
-			}
-			
-			if (args.length == 2 && args[0].equalsIgnoreCase("add")) {
-				try {
-					addDungeon(args[1]);
-				} catch (IOException e) {
-					sender.sendMessage("IOException catched. Stop doing something wrong.");
-					e.printStackTrace();
+			} else if (args.length == 1 && args[0].equalsIgnoreCase("")) {
+
+				// TODO: Add commands that require a single argument
+				// TODO: list
+
+			} else if (args.length == 2 && args[0].equalsIgnoreCase("add")) {
+				if (!(sender instanceof Player)) {
+					sender.sendMessage("You need to be a player to add a dungeon.");
+				} else {
+					try {
+						addDungeon(args[1]);
+					} catch (IOException e) {
+						sender.sendMessage("IOException catched. Stop doing something wrong.");
+						e.printStackTrace();
+					}
 				}
 			}
-			
+
 			return true;
 
 		}
